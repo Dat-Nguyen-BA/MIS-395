@@ -82,7 +82,7 @@ The evaluation results indicate that the model performs unevenly across the thre
 
 <img width="462" height="249" alt="{8C0C29FB-4291-4098-9C09-1B216FA0478A}" src="https://github.com/user-attachments/assets/4288abb6-87a6-4012-95d0-ef40accdb3d8" />
 
-### Graphite Note
+### [Graphite Note](https://app.graphite-note.com/#/model/edit/85a0ab412eb1/view_MultiClassClassificationResults)
 
 The confusion matrix reveals that the model has a strong tendency to predict the “NO” readmission class, often at the expense of accurately identifying the other two classes. For the 10,764 actual “NO” cases, the model correctly predicted 9,156 but misclassified 1,590 as “>30 days” and 18 as “<30 days.” For the 7,035 actual “>30 days” cases, 2,552 were correctly classified, while a substantial 4,447 were misclassified as “NO” and 36 as “<30 days.” The most concerning result is with the 2,250 actual “<30 days” cases, where only 36 were correctly identified, while 1,362 were incorrectly labeled as “NO” and 852 as “>30 days.” These results indicate that the model is biased toward predicting the majority “NO” class and struggles significantly with detecting early readmissions within 30 days, highlighting the need for improved handling of class imbalance and stronger feature differentiation for the minority classes.
 
