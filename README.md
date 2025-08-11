@@ -37,3 +37,11 @@ Output:
 The dataset contains several columns with a high proportion of missing values. In particular, weight (96.86%), max_glu_serum (94.75%), A1Cresult (83.27%), and medical_specialty (49.07%) each have more than 40% missing entries. Due to the significant amount of missing data, these columns were removed from the dataset to avoid introducing bias and to simplify model training. Additionally, other columns with limited predictive value, including those containing identification information (encounter_id, patient_nbr) and payer_code, were also excluded to ensure the model focuses on features that are relevant to predicting early patient readmission.
 
 After removing the high-missing-value and non-predictive columns, the dataset still contained three diagnosis-related columns (diag_1, diag_2, and diag_3) with small proportions of missing values (0.02%, 0.35%, and 1.40% respectively). Given the complexity of accurately imputing medical diagnosis codes and the minimal impact of removing such a small portion of the data, these missing records were handled by deleting the corresponding rows. This approach ensured data integrity while preserving the overall dataset size for model training.
+
+### 2. Categorizing the ICD-9 grouping code
+
+The values in diag_1, diag_2, and diag_3 are inherently categorical, as each diagnosis code corresponds to a specific medical condition that can be grouped into broader disease categories. To standardize these variables, a Python mapping function was applied to categorize all diagnosis codes into 18 distinct groups based on the World Health Organization’s ICD-9 classification standard. This transformation not only simplified the representation of diagnosis information but also enhanced the dataset’s suitability for predictive modeling by consolidating granular codes into meaningful clinical categories.
+
+Sample Input:
+
+<img width="348" height="641" alt="{A4B5CDA0-212E-4CDE-90C7-365D3D40F7DF}" src="https://github.com/user-attachments/assets/5b2317ef-96a5-42be-814f-c6037797f519" />
