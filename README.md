@@ -60,7 +60,7 @@ Input:
 
 The process begins by examining the distribution of the target variable 'readmitted'. It revealed that the dataset is imbalanced, with most patients not being readmitted, followed by those readmitted after 30 days, and a smaller group readmitted within 30 days. Understanding this imbalance is essential for later handling class distribution during model training.
 
-<img width="345" height="158" alt="{F0A5388A-A577-4D9D-A64A-DC311F6B31C8}" src="https://github.com/user-attachments/assets/d988fffb-f094-48fc-98b1-a37d7b371ef6" />
+<img width="1385" height="436" alt="{38EF690B-6854-413A-8E12-6EA1FCC92DCB}" src="https://github.com/user-attachments/assets/c16bcea9-7292-4c52-a9ab-11c017afeb02" />
 
 The next stage involves splitting the data into training and testing subsets using train_test_split from sklearn.model_selection. A test size of 20% is specified, and stratify=y ensures that the class distribution is preserved in both sets, which is particularly important when working with imbalanced target variables. A fixed random_state is used to make the split reproducible.
 
@@ -83,4 +83,15 @@ The evaluation results indicate that the model performs unevenly across the thre
 <img width="462" height="249" alt="{8C0C29FB-4291-4098-9C09-1B216FA0478A}" src="https://github.com/user-attachments/assets/4288abb6-87a6-4012-95d0-ef40accdb3d8" />
 
 ### Graphite Note
+
+The confusion matrix reveals that the model has a strong tendency to predict the “NO” readmission class, often at the expense of accurately identifying the other two classes. For the 10,764 actual “NO” cases, the model correctly predicted 9,156 but misclassified 1,590 as “>30 days” and 18 as “<30 days.” For the 7,035 actual “>30 days” cases, 2,552 were correctly classified, while a substantial 4,447 were misclassified as “NO” and 36 as “<30 days.” The most concerning result is with the 2,250 actual “<30 days” cases, where only 36 were correctly identified, while 1,362 were incorrectly labeled as “NO” and 852 as “>30 days.” These results indicate that the model is biased toward predicting the majority “NO” class and struggles significantly with detecting early readmissions within 30 days, highlighting the need for improved handling of class imbalance and stronger feature differentiation for the minority classes.
+
+<img width="1225" height="380" alt="{A511904C-46DB-4602-BFB3-2851D60E655D}" src="https://github.com/user-attachments/assets/86bb41df-55e9-486f-b86d-1f560b340115" />
+
+
+The model’s overall performance in predicting patient readmission shows moderate effectiveness, with an F1-score of 53.45% indicating a balanced but not exceptional trade-off between precision and recall. The accuracy of 58.58% suggests the model correctly predicts readmission status in slightly more than half of the cases, which is above random guessing for a multi-class problem but still leaves considerable room for improvement. The AUC score of 66.76% reflects a fair ability to distinguish between readmission outcomes, suggesting that the model captures some meaningful patterns in the data but struggles with finer distinctions, particularly in more challenging cases. Precision at 55.27% shows that slightly more than half of the predicted readmissions are correct, while a recall of 58.58% indicates that the model successfully identifies just over half of all actual readmissions. Overall, these metrics point to a model that is functional but would benefit from further optimization such as feature engineering, hyperparameter tuning, or advanced ensemble methods to improve discriminatory power and predictive reliability, especially for harder-to-detect classes.
+
+<img width="1299" height="760" alt="{F48D4F5D-F883-4D96-AAA8-141DC86C278B}" src="https://github.com/user-attachments/assets/fd5e45b3-4220-4cfb-a037-64f6e3c0cd3a" />
+
+
 
