@@ -25,4 +25,10 @@ Sample Output:
 
 <img width="1720" height="508" alt="{35CFA946-F14A-4946-9599-63AF56790CBF}" src="https://github.com/user-attachments/assets/e7ee0dcd-c615-4710-ad3f-34175965c7fe" />
 
-After retrieving all
+
+After retrieving again all attributes and its missing row counts, I got some missing attributes.
+
+Output:
+
+<img width="333" height="247" alt="{18AC3C61-5DD7-4121-8235-E9872F2D755C}" src="https://github.com/user-attachments/assets/a50ea2b0-5e3a-467f-85ce-057620daf20a" />
+
