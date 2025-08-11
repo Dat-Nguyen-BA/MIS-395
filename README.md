@@ -19,3 +19,10 @@ The dataset consists of 101,766 patient records and 50 attributes, offering a ri
 
 ### 1. Checking missing values
 
+While the dataset originally appeared to have no missing values, further inspection reveals that 7 attributes contain missing data, encoded using the placeholder '?'. Therefore, I decided to replace ‘?’ with null values.
+
+Sample Output:
+
+<img width="1720" height="508" alt="{35CFA946-F14A-4946-9599-63AF56790CBF}" src="https://github.com/user-attachments/assets/e7ee0dcd-c615-4710-ad3f-34175965c7fe" />
+
+After retrieving all
