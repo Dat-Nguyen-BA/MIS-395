@@ -62,7 +62,16 @@ The process begins by examining the distribution of the target variable 'readmit
 
 <img width="345" height="158" alt="{F0A5388A-A577-4D9D-A64A-DC311F6B31C8}" src="https://github.com/user-attachments/assets/d988fffb-f094-48fc-98b1-a37d7b371ef6" />
 
+The next stage involves splitting the data into training and testing subsets using train_test_split from sklearn.model_selection. A test size of 20% is specified, and stratify=y ensures that the class distribution is preserved in both sets, which is particularly important when working with imbalanced target variables. A fixed random_state is used to make the split reproducible.
+
+<img width="470" height="174" alt="{1FE621B6-C6B0-43BA-B76A-CF03806E3BCA}" src="https://github.com/user-attachments/assets/92aff85c-27a3-4d45-a151-87ab541930d5" />
+
+To address the class imbalance identified earlier, the SMOTENC technique is implemented. First, the categorical columns are identified as those with 20 or fewer unique values. Their positions are stored in cat_idx, and passed to SMOTENC so that the algorithm knows which features require categorical handling. SMOTENC creates synthetic samples for the minority classes, generating numeric features through interpolation and categorical features by selecting the most frequent category among nearest neighbors. This results in a balanced training dataset without distorting categorical variables.
+
+Finally, the RandomForestClassifier from sklearn.ensemble is imported in preparation for model training. This algorithm is a powerful and flexible ensemble learning method based on decision trees, capable of handling both categorical and numerical data, and robust to overfitting when tuned properly.
 
 The dataset contained a mix of numerical and categorical variables, and the target variable was imbalanced, with significantly fewer cases of early readmission. To address this, we applied SMOTENC, an oversampling technique specifically designed for mixed data types. Unlike standard SMOTE, which works only with numerical data, SMOTENC generates synthetic samples by interpolating numerical features while assigning realistic values to categorical features based on their most frequent occurrences. This ensured the creation of high-quality synthetic data that preserved the original structure and meaning of each feature, helping the predictive model learn more effectively from a balanced dataset.
-### 1. Splitting the dataset
-## Random Forest Classification
+
+The evaluation results indicate that the model performs unevenly across the three readmission classes. It achieves its best performance on patients with no readmission (Class 2), with a precision of 0.63, recall of 0.64, and an F1-score of 0.64, likely due to this class having the largest representation in the dataset. For patients readmitted after 30 days (Class 1), the model shows moderate performance, with precision and recall both at 0.45. However, for early readmissions within 30 days (Class 0), performance is poor, with precision and recall around 0.16 and 0.15 respectively, indicating substantial difficulty in detecting this minority class. The overall accuracy is 52%, with a macro average F1-score of 0.41 and a weighted average of 0.52, reflecting the impact of class imbalance despite the use of SMOTENC. These results suggest that further improvements are needed, particularly in enhancing the model’s ability to identify early readmissions, possibly through additional feature engineering, hyperparameter tuning, or alternative algorithms.
+
+<img width="462" height="249" alt="{8C0C29FB-4291-4098-9C09-1B216FA0478A}" src="https://github.com/user-attachments/assets/4288abb6-87a6-4012-95d0-ef40accdb3d8" />
