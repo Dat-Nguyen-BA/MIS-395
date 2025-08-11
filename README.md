@@ -45,3 +45,11 @@ The values in diag_1, diag_2, and diag_3 are inherently categorical, as each dia
 Sample Input:
 
 <img width="348" height="641" alt="{A4B5CDA0-212E-4CDE-90C7-365D3D40F7DF}" src="https://github.com/user-attachments/assets/5b2317ef-96a5-42be-814f-c6037797f519" />
+
+### 3. Label Encoding
+
+Most of the values in several columns were originally categorical but had been mapped from text labels to numeric codes. To ensure the predictive model interprets these variables correctly as categorical features rather than continuous numerical values, a reverse mapping process was applied to convert the numeric codes back to their original categorical labels. This step preserved the semantic meaning of the data and prevented the model from making false assumptions about ordinal relationships that do not actually exist.
+
+Input:
+
+<img width="608" height="132" alt="{3F81EDBF-CB65-49A5-B8DB-9ED0A6DEAE86}" src="https://github.com/user-attachments/assets/d764cb82-d36f-45e5-b6b5-90ce443ea1c1" />
