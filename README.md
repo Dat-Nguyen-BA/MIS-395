@@ -46,6 +46,8 @@ Sample Input:
 
 <img width="348" height="641" alt="{A4B5CDA0-212E-4CDE-90C7-365D3D40F7DF}" src="https://github.com/user-attachments/assets/5b2317ef-96a5-42be-814f-c6037797f519" />
 
+After these 2 steps, I extract the dataframe into a csv file to upload into Graphite Note, which provides us with many powerful models running by its AI.
+
 ### 3. Label Encoding
 
 Most of the values in several columns were originally categorical but had been mapped from text labels to numeric codes. To ensure the predictive model interprets these variables correctly as categorical features rather than continuous numerical values, a reverse mapping process was applied to convert the numeric codes back to their original categorical labels. This step preserved the semantic meaning of the data and prevented the model from making false assumptions about ordinal relationships that do not actually exist.
@@ -53,3 +55,14 @@ Most of the values in several columns were originally categorical but had been m
 Input:
 
 <img width="608" height="132" alt="{3F81EDBF-CB65-49A5-B8DB-9ED0A6DEAE86}" src="https://github.com/user-attachments/assets/d764cb82-d36f-45e5-b6b5-90ce443ea1c1" />
+
+## Building a Classfication Model
+
+The process begins by examining the distribution of the target variable 'readmitted'. It revealed that the dataset is imbalanced, with most patients not being readmitted, followed by those readmitted after 30 days, and a smaller group readmitted within 30 days. Understanding this imbalance is essential for later handling class distribution during model training.
+
+<img width="345" height="158" alt="{F0A5388A-A577-4D9D-A64A-DC311F6B31C8}" src="https://github.com/user-attachments/assets/d988fffb-f094-48fc-98b1-a37d7b371ef6" />
+
+
+The dataset contained a mix of numerical and categorical variables, and the target variable was imbalanced, with significantly fewer cases of early readmission. To address this, we applied SMOTENC, an oversampling technique specifically designed for mixed data types. Unlike standard SMOTE, which works only with numerical data, SMOTENC generates synthetic samples by interpolating numerical features while assigning realistic values to categorical features based on their most frequent occurrences. This ensured the creation of high-quality synthetic data that preserved the original structure and meaning of each feature, helping the predictive model learn more effectively from a balanced dataset.
+### 1. Splitting the dataset
+## Random Forest Classification
