@@ -23,7 +23,7 @@ While the dataset originally appeared to have no missing values, further inspect
 
 Sample Output:
 
-<img width="1720" height="508" alt="{35CFA946-F14A-4946-9599-63AF56790CBF}" src="https://github.com/user-attachments/assets/e7ee0dcd-c615-4710-ad3f-34175965c7fe" />
+<img width="1720" height="508" alt="{35CFA946-F14A-4946-9599-63AF56790CBF}" src="https://github.com/user-attachments/assets/e7ee0dcd-c615-4710-ad3f-34175965c7fe" /> /n
 
 
 After retrieving again all attributes and its missing row counts, I got some missing attributes.
@@ -32,3 +32,4 @@ Output:
 
 <img width="333" height="247" alt="{18AC3C61-5DD7-4121-8235-E9872F2D755C}" src="https://github.com/user-attachments/assets/a50ea2b0-5e3a-467f-85ce-057620daf20a" />
 
+The dataset contains several columns with a high proportion of missing values. In particular, weight (96.86%), max_glu_serum (94.75%), A1Cresult (83.27%), and medical_specialty (49.07%) each have more than 40% missing entries. Due to the significant amount of missing data, these columns were removed from the dataset to avoid introducing bias and to simplify model training. Additionally, other columns with limited predictive value, including those containing identification information (encounter_id, patient_nbr) and payer_code, were also excluded to ensure the model focuses on features that are relevant to predicting early patient readmission.
